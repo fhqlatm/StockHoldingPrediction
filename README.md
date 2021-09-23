@@ -9,7 +9,7 @@
 ### Members
 * Yonggyun Lee
 * Joung Lee
-* Jonghyun Jung
+* Jonghyun Jeong
 
 ### Using Library
 * numpy
