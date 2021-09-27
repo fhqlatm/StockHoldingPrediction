@@ -5,3 +5,4 @@
 # ignore directories
 
 **/open/
+**/__pycache__/
