@@ -1,8 +1,8 @@
-# Contest
+# 2021 2nd Bigdata Contest of NH INVESTMENT & SECURITIES (DACON)
 
 ## [NH 투자증권 빅데이터 경진대회](https://dacon.io/competitions/official/235798/overview/description)
 
-
+---
 
 # Stock holding prediction model
 
@@ -11,12 +11,9 @@
 * Joung Lee
 * Jonghyun Jeong
 
-### Using Library
+### Using External Library
 * numpy
 * pandas
 * pymySQL
-* re
-* calendar
-* requests
 * sklearn
 * lightgbm
