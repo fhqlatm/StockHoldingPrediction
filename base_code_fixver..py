@@ -9,6 +9,7 @@ from sklearn.metrics import mean_squared_error as mse
 from sklearn.model_selection import train_test_split, StratifiedKFold, KFold
 from lightgbm import LGBMRegressor
 
+from predict_hist_d import *
 
 cus = pd.read_csv("open/cus_info.csv")
 iem = pd.read_csv("open/iem_info.csv")
@@ -18,13 +19,15 @@ test = pd.read_csv("open/stk_hld_test.csv")
 
 submission = pd.read_csv("open/sample_submission.csv")
 
-train["hist_d"] = train["hold_d"]*0.6
-train.hist_d = np.trunc(train["hist_d"])
-
-train.head(3)
+#train["hist_d"] = train["hold_d"]*0.6
+#train.hist_d = np.trunc(train["hist_d"])
+#train.head(3)
+#train_data = pd.merge(train, cus, how = "left", on = ["act_id"])
 
 train_data = pd.merge(train, cus, how = "left", on = ["act_id"])
-train_data = pd.merge(train_data, iem, how = "left", on = ["iem_cd"])
+train_data_hist_d_predicted = predict_hist_d(train_data)
+
+train_data = pd.merge(train_data_hist_d_predicted, iem, how = "left", on = ["iem_cd"])
 
 test_data = pd.merge(test, cus, how = "left", on = ["act_id"])
 test_data = pd.merge(test_data, iem, how = "left", on = ["iem_cd"])
@@ -91,4 +94,4 @@ predict
 submission["hold_d"] = np.round(predict)
 
 submission.loc[submission.hold_d-test.hist_d>146,'hold_d']=test.hist_d+146
-submission.to_csv("dacon_baseline.csv", index = False)
+submission.to_csv("dacon_baseline6.csv", index = False)
