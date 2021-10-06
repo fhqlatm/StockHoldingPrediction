@@ -4,13 +4,9 @@ import os
 
 def predict_hist_d(train_data):
 
-    # Exception for IVS_ICN_CD code 99.
-    train_data[(train_data["ivs_icn_cd"] == 99)] = 0
+    train_data=train_data[train_data.hold_d>=14]
 
-    # Exception for IVS_ICN_CD code 09.
-    train_data[(train_data["ivs_icn_cd"] == 9)] = 6
-
-    train_data["hist_d"] = (train_data["hold_d"] * (0.65 - (train_data["ivs_icn_cd"] * 0.01)))
+    train_data["hist_d"] = (train_data["hold_d"] * (0.6))
     train_data.hist_d = np.trunc(train_data["hist_d"])
 
     return train_data

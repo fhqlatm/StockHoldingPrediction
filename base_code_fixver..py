@@ -22,12 +22,10 @@ submission = pd.read_csv("open/sample_submission.csv")
 #train["hist_d"] = train["hold_d"]*0.6
 #train.hist_d = np.trunc(train["hist_d"])
 #train.head(3)
-#train_data = pd.merge(train, cus, how = "left", on = ["act_id"])
 
-train_data = pd.merge(train, cus, how = "left", on = ["act_id"])
-train_data_hist_d_predicted = predict_hist_d(train_data)
-
-train_data = pd.merge(train_data_hist_d_predicted, iem, how = "left", on = ["iem_cd"])
+train_data = predict_hist_d(train)
+train_data = pd.merge(train_data, cus, how = "left", on = ["act_id"])
+train_data = pd.merge(train_data, iem, how = "left", on = ["iem_cd"])
 
 test_data = pd.merge(test, cus, how = "left", on = ["act_id"])
 test_data = pd.merge(test_data, iem, how = "left", on = ["iem_cd"])
@@ -94,4 +92,4 @@ predict
 submission["hold_d"] = np.round(predict)
 
 submission.loc[submission.hold_d-test.hist_d>146,'hold_d']=test.hist_d+146
-submission.to_csv("dacon_baseline6.csv", index = False)
+submission.to_csv("dacon_1.csv", index = False)
