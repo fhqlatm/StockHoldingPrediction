@@ -1,6 +1,7 @@
 # ignore files
 
 *.csv
+*.txt
 
 # ignore directories
 
