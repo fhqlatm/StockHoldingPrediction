@@ -92,4 +92,4 @@ predict
 submission["hold_d"] = np.round(predict)
 
 submission.loc[submission.hold_d-test.hist_d>146,'hold_d']=test.hist_d+146
-submission.to_csv("dacon_1.csv", index = False)
+submission.to_csv("dacon_2.csv", index = False)
