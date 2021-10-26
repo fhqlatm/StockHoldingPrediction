@@ -7,9 +7,9 @@
 # Stock holding prediction model
 
 ### Members
-* Yonggyun Lee
-* Joung Lee
-* Jonghyun Jeong
+* [Yonggyun Lee](https://github.com/sktEjrtkd)
+* [Joung Lee](https://github.com/fhqlatm)
+* [Jonghyun Jeong](https://github.com/RastabanJ)
 
 ### Using External Library
 * numpy
