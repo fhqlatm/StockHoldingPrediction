@@ -4,16 +4,16 @@
 
 ---
 
-# Stock holding prediction model
+## Stock holding prediction model
 
 ### Members
 * [Yonggyun Lee](https://github.com/sktEjrtkd)
 * [Joung Lee](https://github.com/fhqlatm)
 * [Jonghyun Jeong](https://github.com/RastabanJ)
 
-### Using External Library
+### Requirements
 * numpy
 * pandas
 * pymySQL
 * sklearn
-* lightgbm
+* lightgbm (LGBM)
